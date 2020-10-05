@@ -1,10 +1,10 @@
-import unicodedata
-from msvcrt import getch
+import unicodedata   #importing toRoman function from unicode data module to convert maithili text from devnagri script to roman script.
+from msvcrt import getch  #importing getch function to stop the output screen in order to clearly show the output after execution
 
-def toRoman(Sentence):
+def toRoman(Sentence):   #sentence string is passed as argument to toRoman()
     engSentence=""
     print(Sentence)
-    Words=Sentence.split()
+    Words=Sentence.split()  #each word of the sentence are broken in order to generate their meaning using dictionay.txt
     #print(Words)
     for w in Words:
         #print(w)
@@ -26,11 +26,11 @@ def toRoman(Sentence):
     print(engSentence)
     return engSentence
 
-def isVowel(c):
+def isVowel(c):  #function to check the character is vowel or not
     if c=='A' or c=='E' or c=='I' or c=='O' or c=='U' or c==':': return True
     else: return False
 
-def match(word,root):
+def match(word,root): #fuction which matches the word with the root word passed as an argument
     i=0
     j=0
     #if len(root)<pre or len(word)<pre: return False
@@ -89,7 +89,7 @@ def matchcon(word,root):
     
 #main program
 
-with open("D:\Maithili-English Converter\dictionary.txt") as f:
+with open("D:\Maithili-English Converter\dictionary.txt") as f: #using dictionary.txt which is a root word database to match words in order to find their english meanings
     i=1
     mydict=dict()
     for line in f:
@@ -104,13 +104,13 @@ with open("D:\Maithili-English Converter\dictionary.txt") as f:
 
 
 print("Enter a Sentence in Maithili")
-Sentence="नीतीश कुमार देशक किछु एहन नेता मे स छथि जिनकर लक्ष्य बुझब बड कठिन अछि"
+Sentence="नीतीश कुमार देशक किछु एहन नेता मे स छथि जिनकर लक्ष्य बुझब बड कठिन अछि"  #input sentence
 #Sentence=input()
 S=toRoman(Sentence)
-print("Enter precision limit(1-3)")
+print("Enter precision limit(1-3)") #precision selector
 pre=3
 pre=int(input())
-multians='y'
+multians='y' #Show multiple matches YES or NO
 print("show multiple matches(y/n)?");
 multians=input()
 Words=S.split()
@@ -148,7 +148,7 @@ print("unmatched words=",U)
 per=(T-U)*100/T
 print("matching percentage=",per,'%\n\n')
 
-leave = getch()
+leave = getch()  #calling the getch() function
         
 
 
